@@ -235,6 +235,7 @@ const crawl = async opt => {
           sourcemapStore
         });
         beforeFetch && beforeFetch({ page, route });
+        await page.setDefaultNavigationTimeout(0); 
         await page.setUserAgent(options.userAgent);
         const tracker = createTracker(page);
         try {
